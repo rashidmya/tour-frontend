@@ -33,7 +33,7 @@ export default {
     const positions = [100, 325, 1157, 2100];
 
     function scrollPosition(e) {
-      console.log(position.value); // get position of scroll
+      // console.log(position.value); // get position of scroll
       position.value = e.position.top;
     }
     onMounted(() => {});
@@ -48,8 +48,8 @@ export default {
 
 <style scoped>
 .hide {
-  transition: all 0.3s ease-out;
-  transform: translateY(100px);
+  transition: all 0.1s ease-out;
+  transform: translateY(250px);
   opacity: 0;
 }
 

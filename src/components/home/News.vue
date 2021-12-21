@@ -1,5 +1,5 @@
 <template>
-  <section-one link="#">
+  <section-a link="#">
     <template #title>LATEST NEWS</template>
     <template #default
       >Don't miss a Sharjah Tour moment, with the latest news, videos, Stages
@@ -20,14 +20,16 @@
         <template #link-label>Read More</template>
       </news-card>
     </template>
-  </section-one>
+  </section-a>
 </template>
 
 <script>
 import NewsCard from "../UI/NewsCard.vue";
+
 export default {
   components: {
     NewsCard,
+  
   },
 };
 </script>

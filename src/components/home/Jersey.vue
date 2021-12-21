@@ -33,7 +33,9 @@
             </div>
           </Slide>
 
-          ...
+             <template #addons>
+      <Pagination />
+    </template>
         </Carousel>
       </div>
     </div>
@@ -43,12 +45,13 @@
 
 <script>
 import { defineComponent } from "vue";
-import { Carousel, Slide } from "vue3-carousel";
+import { Carousel, Slide, Pagination  } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 export default defineComponent({
   components: {
     Carousel,
     Slide,
+    Pagination
   },
 });
 </script>
@@ -106,6 +109,8 @@ img {
 
 li {
   width: 100%;
+  height: 16vw;
+  z-index: 5;
 }
 
 .jersey-box {

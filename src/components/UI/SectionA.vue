@@ -93,15 +93,6 @@ export default {
   display: flex;
 }
 
-.section-animate {
-  opacity: 1;
-  transform: translateZ(0);
-  transition-duration: 0.8s;
-  transition-timing-function: ease;
-  transition-property: opacity, transform;
-}
-
-
 h1 {
   text-transform: uppercase;
   font-size: 3.2vw;

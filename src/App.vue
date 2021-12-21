@@ -47,5 +47,4 @@ body {
   transition-timing-function: ease;
   transition-property: opacity, transform;
 }
-
 </style>
