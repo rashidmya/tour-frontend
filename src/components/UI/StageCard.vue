@@ -104,11 +104,11 @@ a {
   margin-top: 1vw;
   position: relative;
   display: inline-block;
-  font-size: 0.6vw;
-  line-height: 0.8vw;
+  font-size: 15px;
+  line-height: 3px;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0.5vw 2vw;
+  padding: 15px 15px;
   border: 2px solid #c6b784;
   color: #c6b784;
   background-color: #fff;

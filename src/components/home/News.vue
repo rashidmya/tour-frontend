@@ -13,7 +13,7 @@
         </template>
         <template #date>26 OCT 2021</template>
         <template #default
-          >UAE Tour set to open UCI WorldTour calendar in February
+          >UAE Tour set to open UCI World Tour calendar in February
           2022</template
         >
 

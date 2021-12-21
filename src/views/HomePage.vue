@@ -6,6 +6,7 @@
     <News :class="position < positions[1] ? 'hide' : 'show'" />
     <Jersey :class="position < positions[2] ? 'hide' : 'show'" />
     <Stages :class="position < positions[3] ? 'hide' : 'show'"/>
+    <Sponsors :class="position < positions[4] ? 'hide' : 'show'"/>
     <Footer/>
   </q-page>
 </template>
@@ -16,7 +17,8 @@ import News from "../components/home/News.vue";
 import Banner from "../components/home/Banner.vue";
 import Winner from "../components/home/Winner.vue";
 import Jersey from "../components/home/Jersey.vue";
-import Footer from "../components/home/Footer.vue";
+import Footer from "../layout/Footer.vue";
+import Sponsors from "../components/home/Sponsors.vue";
 import { onMounted, ref } from "vue";
 
 export default {
@@ -26,14 +28,15 @@ export default {
     News,
     Winner,
     Jersey,
-    Footer
+    Footer,
+    Sponsors
   },
   setup() {
     const position = ref(null);
-    const positions = [100, 325, 1157, 2100];
+    const positions = [100, 325, 1157, 2200, 3200];
 
     function scrollPosition(e) {
-      // console.log(position.value); // get position of scroll
+      console.log(position.value); // get position of scroll
       position.value = e.position.top;
     }
     onMounted(() => {});
@@ -49,12 +52,12 @@ export default {
 <style scoped>
 .hide {
   transition: all 0.1s ease-out;
-  transform: translateY(250px);
+  transform: translateY(100px);
   opacity: 0;
 }
 
 .show {
-  transition: all 0.4s ease-in;
+  transition: all 0.3s ease-in;
   transform: translateY(0px);
   opacity: 1;
 }

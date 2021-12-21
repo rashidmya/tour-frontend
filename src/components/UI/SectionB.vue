@@ -39,7 +39,7 @@ export default {
 .section {
   position: relative;
   display: block;
-  margin-bottom: 12vw;
+  margin-bottom: 6vw;
 }
 
 .title-box {
