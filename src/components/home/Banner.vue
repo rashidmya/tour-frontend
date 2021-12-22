@@ -28,14 +28,15 @@ export default {
 
 <style scoped>
 #banner {
-  height: 100vh;
+  height: 95vh;
   display: block;
   margin: 0;
   overflow-x: hidden;
-  background: url("~@/assets/campaign.jpg");
+  background-color: white;
+  background-image: url("~@/assets/campaign.jpg");
   background-position: top;
   background-repeat: no-repeat;
-  background-size: 82%;
+  background-size: 70%;
   background-position-y: calc(66vh - 30vw);
   overflow: hidden;
 }
