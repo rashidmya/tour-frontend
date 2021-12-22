@@ -36,6 +36,8 @@ body {
 
 .pattern-bg {
   background-image: url("~@/assets/pattern.svg");
+   background-repeat: no-repeat;
+  background-attachment: fixed;
   z-index: 3;
 }
 
