@@ -7,14 +7,15 @@
     >
     <template #link-label> MORE NEWS </template>
     <template #content>
-      <news-card v-for="n in 3" :key="n" link="#">
+      <news-card v-for="n in news" :key="n.id" link="#">
         <template #image>
-          <q-parallax src="https://cdn.quasar.dev/img/parallax2.jpg" />
+          <q-parallax :src="'http://localhost:1337' + n.attributes.image.data.attributes.url"/>
         </template>
-        <template #date>26 OCT 2021</template>
+        <template #date>{{n.attributes.createdAt}}</template>
         <template #default
-          >UAE Tour set to open UCI World Tour calendar in February
-          2022</template
+          >
+          {{n.attributes.title}}
+          </template
         >
 
         <template #link-label>Read More</template>
@@ -27,10 +28,12 @@
 import NewsCard from "../UI/NewsCard.vue";
 
 export default {
+  props: ['news'],
   components: {
     NewsCard,
-  
   },
+  setup(){
+  }
 };
 </script>
 

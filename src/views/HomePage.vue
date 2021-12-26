@@ -3,11 +3,12 @@
     <q-scroll-observer @scroll="scrollPosition" />
     <Banner />
     <Winner :class="position < positions[0] ? 'hide' : 'show'" />
-    <News :class="position < positions[1] ? 'hide' : 'show'" />
+    <News :news="news" :class="position < positions[1] ? 'hide' : 'show'" />
     <Jersey :class="position < positions[2] ? 'hide' : 'show'" />
     <Stages :class="position < positions[3] ? 'hide' : 'show'"/>
     <Sponsors :class="position < positions[4] ? 'hide' : 'show'"/>
     <Footer/>
+
   </q-page>
 </template>
 
@@ -19,7 +20,8 @@ import Winner from "../components/home/Winner.vue";
 import Jersey from "../components/home/Jersey.vue";
 import Footer from "../layout/Footer.vue";
 import Sponsors from "../components/home/Sponsors.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
+import {useStore} from 'vuex';
 
 export default {
   components: {
@@ -32,18 +34,24 @@ export default {
     Sponsors
   },
   setup() {
+    const store = useStore();
     const position = ref(null);
-    const positions = [100, 325, 1157, 2200, 3200];
+    const positions = [100, 325, 1157, 2200, 3000];
+    
+    store.dispatch('loadNews')
 
+const news = computed(()=> store.getters.news)
     function scrollPosition(e) {
-      console.log(position.value); // get position of scroll
+      // console.log(position.value); // get position of scroll
       position.value = e.position.top;
     }
+
     onMounted(() => {});
     return {
       position,
       scrollPosition,
       positions,
+      news
     };
   },
 };

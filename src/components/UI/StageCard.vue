@@ -46,14 +46,12 @@ export default {
     top: -50%;
     width: 200%;
     height: 200%;
-    background-color: #399953;
+    background-color: #C6B784;
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#d44545, #d44545),
-      linear-gradient(#23a729, #23a729),
-      linear-gradient(#222222, rgb(22, 22, 22)),
-      linear-gradient(#c6b784, #c6b784);
+    background-image: linear-gradient(#18344a, #18344a),
+      linear-gradient(#222222, #222222);
     animation: rotate 4s linear infinite;
   }
 

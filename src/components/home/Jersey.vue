@@ -27,7 +27,7 @@
           </div>
         </div>
         <Carousel :itemsToShow="3.99" :wrapAround="true">
-          <Slide v-for="slide in 10" :key="slide">
+          <Slide v-for="slide in 5" :key="slide">
             <div class="carousel__item">
               <img src="@/assets/jersey.png" alt="" />
             </div>
@@ -105,6 +105,10 @@ img {
 .carousel__slide--active > .carousel__item {
   transform: scale(1.3);
   opacity: 1;
+}
+
+.carousel__pagination {
+  padding: 0;
 }
 
 li {
