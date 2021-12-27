@@ -1,4 +1,5 @@
 import axios from "axios"
+const qs = require('qs');
 
 export default {
     state(){
@@ -14,7 +15,19 @@ export default {
     },
     actions: {
         async loadNews({commit}){
-            const res = await axios.get('http://localhost:1337/api/articles?populate=*')
+           
+const query = qs.stringify({
+    sort: ['publishedAt:desc'],
+  pagination: {
+    page: 1,
+    pageSize: 3,
+  },
+}, {
+  encodeValuesOnly: true,
+});
+
+// GET /api/articles?pagination[page]=1&pagination[pageSize]=10
+            const res = await axios.get(`http://localhost:1337/api/articles?${query}&populate=*`)
             commit('loadNews', res.data.data)
         }
     },
