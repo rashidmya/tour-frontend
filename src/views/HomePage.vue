@@ -4,11 +4,10 @@
     <Banner />
     <Winner :class="position < positions[0] ? 'hide' : 'show'" />
     <News :news="news" :class="position < positions[1] ? 'hide' : 'show'" />
-    <Jersey :class="position < positions[2] ? 'hide' : 'show'" />
-    <Stages :class="position < positions[3] ? 'hide' : 'show'"/>
-    <Sponsors :class="position < positions[4] ? 'hide' : 'show'"/>
-    <Footer/>
-
+    <Jersey :jerseys="jerseys" :class="position < positions[2] ? 'hide' : 'show'" />
+    <Stages :class="position < positions[3] ? 'hide' : 'show'" />
+    <Sponsors :class="position < positions[4] ? 'hide' : 'show'" />
+    <Footer />
   </q-page>
 </template>
 
@@ -21,7 +20,7 @@ import Jersey from "../components/home/Jersey.vue";
 import Footer from "../layout/Footer.vue";
 import Sponsors from "../components/home/Sponsors.vue";
 import { onMounted, ref, computed } from "vue";
-import {useStore} from 'vuex';
+import { useStore } from "vuex";
 
 export default {
   components: {
@@ -31,16 +30,19 @@ export default {
     Winner,
     Jersey,
     Footer,
-    Sponsors
+    Sponsors,
   },
   setup() {
     const store = useStore();
     const position = ref(null);
     const positions = [100, 325, 1157, 2200, 3000];
-    
-    store.dispatch('loadNews')
 
-const news = computed(()=> store.getters.news)
+    store.dispatch("homepage/loadNews");
+    store.dispatch("homepage/loadJerseys");
+
+    const news = computed(() => store.getters['homepage/news']);
+    const jerseys = computed(() => store.getters['homepage/jerseys']);
+
     function scrollPosition(e) {
       // console.log(position.value); // get position of scroll
       position.value = e.position.top;
@@ -51,7 +53,8 @@ const news = computed(()=> store.getters.news)
       position,
       scrollPosition,
       positions,
-      news
+      news,
+      jerseys
     };
   },
 };
