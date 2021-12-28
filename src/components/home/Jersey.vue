@@ -27,15 +27,21 @@
           </div>
         </div>
         <Carousel :itemsToShow="3.99" :wrapAround="true">
-          <Slide v-for="slide in 5" :key="slide">
+          <Slide v-for="jersey in jerseys" :key="jersey.id">
             <div class="carousel__item">
-              <img src="@/assets/jersey.png" alt="" />
+              <img
+                :src="
+                  'http://localhost:1337' +
+                  jersey.attributes.image.data.attributes.url
+                "
+                :alt="jersey.attributes.name"
+              />
             </div>
           </Slide>
 
-             <template #addons>
-      <Pagination />
-    </template>
+          <template #addons>
+            <Pagination />
+          </template>
         </Carousel>
       </div>
     </div>
@@ -44,14 +50,28 @@
 
 
 <script>
-import { defineComponent } from "vue";
-import { Carousel, Slide, Pagination  } from "vue3-carousel";
+import { defineComponent, onMounted } from "vue";
+import { Carousel, Slide, Pagination } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
+
 export default defineComponent({
+  props: ["jerseys"],
   components: {
     Carousel,
     Slide,
-    Pagination
+    Pagination,
+  },
+  setup() {
+    onMounted(() => {
+      const slides = document.querySelectorAll(".carousel__slide");
+      slides.forEach((slide) => {
+        slide.addEventListener('change', (e)=> {
+          console.log(e);
+        })
+      });
+    });
+
+    return {};
   },
 });
 </script>
@@ -136,6 +156,6 @@ h2 {
 
 h5 {
   text-align: center;
-   margin: 0
+  margin: 0;
 }
 </style>
