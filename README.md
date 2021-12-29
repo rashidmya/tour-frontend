@@ -1,4 +1,4 @@
-tried to make it look like: www.theuaetour.com
+tried to clone www.theuaetour.com
 
 # client
 
