@@ -3,20 +3,20 @@
     <template #title> <div class="header">STAGES</div> </template>
     <template #default>
       <Carousel :settings="settings" :breakpoints="breakpoints">
-        <Slide class="my-slides" v-for="slide in 6" :key="slide">
-          <stage-card img="https://cdn.quasar.dev/img/parallax2.jpg">
+        <Slide class="my-slides" v-for="s,i in stages" :key="s.id">
+          <stage-card :img="'http://localhost:1337' + s.attributes.image.data.attributes.url">
             
-            <template #title>Adnoc Stage</template>
-            <template #subtitle>STAGE 1</template>
+            <template #title>{{s.attributes.title}}</template>
+            <template #subtitle>STAGE {{i+1}}</template>
             <template #default>
               <q-list separator>
                 <q-item v-ripple>
-                  <q-item-section>Mon, Feb 21st 2021</q-item-section>
+                  <q-item-section>{{s.attributes.date}}</q-item-section>
                 </q-item>
 
                 <q-item v-ripple>
                   <q-item-section>
-                    <q-item-label>130</q-item-label>
+                    <q-item-label>{{s.attributes.km}}</q-item-label>
                     <q-item-label class="highlight" caption>KM</q-item-label>
                   </q-item-section>
                 </q-item>
@@ -24,13 +24,13 @@
                 <q-item v-ripple>
                   <q-item-section>
                     <q-item-label class="highlight" overline>FROM</q-item-label>
-                    <q-item-label>Al Dhafra Castle</q-item-label>
+                    <q-item-label>{{s.attributes.from}}</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item v-ripple>
                   <q-item-section>
                     <q-item-label class="highlight" overline>TO</q-item-label>
-                    <q-item-label>Al Hudayriyat Island</q-item-label>
+                    <q-item-label>{{s.attributes.to}}</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -58,6 +58,7 @@ export default {
     Navigation,
     StageCard,
   },
+  props: ['stages'],
   setup() {
     const settings = {
       itemsToShow: 1,

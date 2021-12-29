@@ -1,9 +1,9 @@
 <template>
-  <div id="banner">
+  <div id="banner" :style="'background-image: url(http://localhost:1337' + banner.url + ')'">
     <div class="row">
       <div class="column">
         <div class="container">
-          <div class="hc">{{ title }}</div>
+          <div class="hc">{{ banner.title }}</div>
         </div>
       </div>
     </div>
@@ -11,17 +11,11 @@
 </template>
 
 <script>
-import { computed } from "vue";
 
 export default {
+  props: ["banner"],
   setup() {
-    const title = computed(() => {
-      return "THE ONE AND ONLY WORLD TOUR RACE IN THE MIDDLE EAST".toUpperCase();
-    });
-
-    return {
-      title,
-    };
+    return {};
   },
 };
 </script>
@@ -33,7 +27,6 @@ export default {
   margin: 0;
   overflow-x: hidden;
   background-color: white;
-  background-image: url("~@/assets/campaign.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: 70%;

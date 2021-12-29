@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
-import news from './modules/news'
+import homepage from './modules/homepage'
 
 export default createStore({
     modules: {
-        news
+     homepage
     }
 })

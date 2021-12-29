@@ -1,11 +1,11 @@
 <template>
   <q-page id="body">
     <q-scroll-observer @scroll="scrollPosition" />
-    <Banner />
+    <Banner :banner="banner" />
     <Winner :class="position < positions[0] ? 'hide' : 'show'" />
     <News :news="news" :class="position < positions[1] ? 'hide' : 'show'" />
     <Jersey :jerseys="jerseys" :class="position < positions[2] ? 'hide' : 'show'" />
-    <Stages :class="position < positions[3] ? 'hide' : 'show'" />
+    <Stages :stages="stages" :class="position < positions[3] ? 'hide' : 'show'" />
     <Sponsors :class="position < positions[4] ? 'hide' : 'show'" />
     <Footer />
   </q-page>
@@ -39,9 +39,13 @@ export default {
 
     store.dispatch("homepage/loadNews");
     store.dispatch("homepage/loadJerseys");
+    store.dispatch("homepage/loadStages");
+    store.dispatch("homepage/loadBanner");
 
     const news = computed(() => store.getters['homepage/news']);
     const jerseys = computed(() => store.getters['homepage/jerseys']);
+    const stages = computed(() => store.getters['homepage/stages']);
+    const banner = computed(() => store.getters['homepage/banner']);
 
     function scrollPosition(e) {
       // console.log(position.value); // get position of scroll
@@ -54,7 +58,9 @@ export default {
       scrollPosition,
       positions,
       news,
-      jerseys
+      jerseys,
+      stages,
+      banner
     };
   },
 };
