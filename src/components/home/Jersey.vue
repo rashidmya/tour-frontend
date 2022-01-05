@@ -78,7 +78,7 @@ export default defineComponent({
 
 <style scoped>
 .wrapper {
-  margin: 4vw 0;
+  margin: 4vw 0 0 0;
 }
 
 .background {
@@ -157,5 +157,10 @@ h2 {
 h5 {
   text-align: center;
   margin: 0;
+}
+
+.Livello_1-2, .Livello_2, svg, g {
+  margin: 0;
+  padding: 0;
 }
 </style>

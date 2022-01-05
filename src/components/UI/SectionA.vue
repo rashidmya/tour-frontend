@@ -40,13 +40,13 @@ export default {
   width: 100%;
   flex-direction: row;
   align-items: center;
-  padding-top: 4vw;
+  padding-top: 2vw;
   padding-bottom: 2vw;
 }
 
 .description-container {
   margin-left: 7.5vw;
-  margin-top: 4vw;
+  margin-top: 2vw;
 }
 
 .description-container p {
@@ -88,7 +88,7 @@ export default {
 
 
 .content-container {
-  padding: 6vw 0;
+  padding: 2vw 0;
   width: 100%;
   display: flex;
 }

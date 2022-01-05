@@ -5,7 +5,6 @@
       <Carousel :settings="settings" :breakpoints="breakpoints">
         <Slide class="my-slides" v-for="s,i in stages" :key="s.id">
           <stage-card :img="'http://localhost:1337' + s.attributes.image.data.attributes.url">
-            
             <template #title>{{s.attributes.title}}</template>
             <template #subtitle>STAGE {{i+1}}</template>
             <template #default>
@@ -96,9 +95,12 @@ export default {
   width: 100%;
   padding: 0.10vw;
   overflow: hidden;
+
 }
+
 .my-slides {
-  padding: 2vw 0;
+  padding: 1vw 0;
+    margin: 0 auto;
 }
 
 .q-card {
@@ -111,5 +113,4 @@ export default {
   line-height: 1;
   font-weight: 500;
 }
-
 </style>
